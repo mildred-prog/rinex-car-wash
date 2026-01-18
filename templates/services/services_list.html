@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Our Services | Rinex Shine{% endblock %}
+
+{% block content %}
+<section class="services-page">
+  <div class="container">
+    <h1>Our Services</h1>
+    <p>Professional mobile car care and cleaning services tailored to your needs.</p>
+
+    <div class="service-filters" style="margin: 16px 0;">
+      <a href="{% url 'services:list' %}">All</a> |
+      <a href="{% url 'services:list' %}?category=car">Car Care</a> |
+      <a href="{% url 'services:list' %}?category=home">Home Cleaning</a> |
+      <a href="{% url 'services:list' %}?category=commercial">Office & Shop</a> |
+      <a href="{% url 'services:list' %}?category=move">Move In/Out</a> |
+      <a href="{% url 'services:list' %}?category=upholstery">Upholstery</a>
+    </div>
+
+    {% if services %}
+      <div class="services-grid">
+        {% for service in services %}
+          <div class="service-card">
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.short_description }}</p>
+
+            <p>
+              <strong>Ideal for:</strong> {{ service.ideal_for }}
+            </p>
+
+            <p class="price">
+              <strong>Starting from:</strong> £{{ service.starting_price }}
+            </p>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn btn-secondary" href="{% url 'services:detail' service.pk %}">
+                View Details
+              </a>
+
+              <a class="btn btn-primary" href="{% url 'bookings:booking' %}?service={{ service.pk }}">
+                Book This Service
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No services found.</p>
+    {% endif %}
+
+    <p style="margin-top: 18px; font-size: 0.95rem;">
+      Prices are starting prices. Final cost may vary depending on size, condition, and service requirements.
+    </p>
+  </div>
+</section>
+{% endblock %}

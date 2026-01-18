@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ service.name }} | Rinex Shine{% endblock %}
+
+{% block content %}
+<section class="service-detail">
+  <div class="container">
+    <h1>{{ service.name }}</h1>
+    <p><strong>Category:</strong> {{ service.get_category_display }}</p>
+    <p><strong>Ideal for:</strong> {{ service.ideal_for }}</p>
+
+    <p style="margin-top: 14px;">
+      <strong>Starting from:</strong> £{{ service.starting_price }}
+    </p>
+
+    <hr style="margin: 18px 0;">
+
+    <p>{{ service.full_description|linebreaks }}</p>
+
+    <div style="margin-top: 18px;">
+      <a class="btn btn-primary" href="{% url 'bookings:booking' %}?service={{ service.pk }}">
+        Book This Service
+      </a>
+      <a class="btn btn-secondary" href="{% url 'services:list' %}" style="margin-left: 10px;">
+        Back to Services
+      </a>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 0.95rem;">
+      Prices are starting prices. Final cost may vary depending on size, condition, and service requirements.
+    </p>
+  </div>
+</section>
+{% endblock %}
