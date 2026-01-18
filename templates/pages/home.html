@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Rinex Car Wash{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Rinex Shine Mobile Car Wash</h1>
+        <p>Professional mobile detailing, valeting & cleaning services.</p>
+
+        <a href="{% url 'bookings:booking' %}" class="btn btn-primary">
+            Book Now
+        </a>
+    </div>
+</section>
+{% endblock %}
