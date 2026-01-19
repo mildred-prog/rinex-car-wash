@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from .models import Service
+from .models import ServiceTier
 
 
 def services_list(request):
@@ -25,3 +27,9 @@ def service_detail(request, pk):
     """
     service = get_object_or_404(Service, pk=pk, is_active=True)
     return render(request, "services/service_detail.html", {"service": service})
+
+
+def load_service_tiers(request):
+    service_id = request.GET.get("service_id")
+    tiers = ServiceTier.objects.filter(service_id=service_id).values("id", "label", "price")
+    return JsonResponse(list(tiers), safe=False)

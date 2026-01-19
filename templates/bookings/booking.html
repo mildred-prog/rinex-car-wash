@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Book a Service | Rinex Shine{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 760px;">
+  <h1>Book a Service</h1>
+  <p>Book instantly via WhatsApp, call us, or request a quote using the form below.</p>
+
+  <div class="d-grid gap-2 mb-4">
+    <a class="btn btn-success"
+       href="https://wa.me/447956450596?text=Hello%20Rinex%20Shine%2C%20I%20want%20to%20book%20a%20service."
+       target="_blank" rel="noopener">
+      WhatsApp (Fastest)
+    </a>
+
+    <a class="btn btn-outline-dark" href="tel:+447956450596">
+      Call Us
+    </a>
+  </div>
+
+  <form method="POST" class="card card-body">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    {% for field in form %}
+      <div class="mb-3">
+        <label class="form-label">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="text-danger small">{{ field.errors|striptags }}</div>
+        {% endif %}
+        {% if field.help_text %}
+          <div class="text-muted small">{{ field.help_text }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <button class="btn btn-primary" type="submit">Submit Request</button>
+  </form>
+
+  <p class="mt-3 text-muted" style="font-size: 0.95rem;">
+    Prices shown are starting prices. Final cost may vary depending on size, condition, and service requirements.
+  </p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const serviceSelect = document.getElementById("id_service");
+    const tierSelect = document.getElementById("id_tier");
+
+    serviceSelect.addEventListener("change", function () {
+        const serviceId = this.value;
+
+        // Reset tier dropdown
+        tierSelect.innerHTML = '<option value="">---------</option>';
+
+        if (!serviceId) return;
+
+        fetch(`/services/ajax/load-tiers/?service_id=${serviceId}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(tier => {
+                    const option = document.createElement("option");
+                    option.value = tier.id;
+                    option.textContent = `${tier.label} (£${tier.price})`;
+                    tierSelect.appendChild(option);
+                });
+            });
+    });
+});
+</script>
+
+{% endblock %}

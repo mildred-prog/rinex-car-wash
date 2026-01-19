@@ -6,3 +6,5 @@ app_name = 'bookings'
 urlpatterns = [
     path('', views.booking, name='booking'),
 ]
+
+
