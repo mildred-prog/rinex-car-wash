@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Cancel Booking | Rinex Shine{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width:500px;">
+  <h3>Cancel Booking</h3>
+
+  <p>
+    Are you sure you want to cancel your booking for
+    <strong>{{ booking.service.name }}</strong>?
+  </p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Yes, cancel</button>
+    <a class="btn btn-secondary" href="{% url 'accounts:dashboard' %}">
+      Go back
+    </a>
+  </form>
+</div>
+{% endblock %}
