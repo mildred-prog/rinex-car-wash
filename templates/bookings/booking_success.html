@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Booking Submitted | Rinex Shine{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 760px;">
+  <h1 class="mb-3">Booking Received</h1>
+
+  <p class="mb-4">
+    Thank you. Your request has been received. We’ll confirm availability and pricing shortly.
+  </p>
+
+  <div class="card card-body mb-4">
+    <p><strong>Service:</strong> {{ booking.service.name }}</p>
+    <p><strong>Option:</strong> {{ booking.tier.label|default:"Not specified" }}</p>
+    <p><strong>Postcode:</strong> {{ booking.postcode }}</p>
+    <p><strong>Preferred date:</strong> {{ booking.preferred_date|default:"Not specified" }}</p>
+  </div>
+
+  <div class="d-grid gap-2">
+    <a class="btn btn-success btn-lg" href="{{ whatsapp_url }}" target="_blank" rel="noopener">
+      Send on WhatsApp (Recommended)
+    </a>
+    <a class="btn btn-outline-primary" href="{% url 'pages:home' %}">
+      Back to Home
+    </a>
+  </div>
+
+  <p class="text-muted mt-3" style="font-size: 0.95rem;">
+    Note: Prices are starting prices. Final cost may vary depending on size, condition, and service requirements.
+  </p>
+</div>
+{% endblock %}
