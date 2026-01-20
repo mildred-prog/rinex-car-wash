@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Booking Details | Rinex Shine{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width:600px;">
+  <h2>Booking Details</h2>
+
+  <p><strong>Service:</strong> {{ booking.service.name }}</p>
+  <p><strong>Option:</strong> {{ booking.tier.label|default:"N/A" }}</p>
+  <p><strong>Date:</strong> {{ booking.preferred_date|default:"Not set" }}</p>
+  <p><strong>Status:</strong> {{ booking.get_status_display }}</p>
+
+  {% if booking.status != "cancelled" %}
+    <a class="btn btn-danger"
+       href="{% url 'accounts:cancel_booking' booking.pk %}">
+      Cancel Booking
+    </a>
+  {% endif %}
+</div>
+{% endblock %}
