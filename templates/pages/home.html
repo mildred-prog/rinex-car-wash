@@ -1,16 +1,173 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Home | Rinex Car Wash{% endblock %}
+{% block title %}Rinex Shine | Mobile Car Wash & Cleaning{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <div class="container">
-        <h1>Rinex Shine Mobile Car Wash</h1>
-        <p>Professional mobile detailing, valeting & cleaning services.</p>
 
-        <a href="{% url 'bookings:booking' %}" class="btn btn-primary">
+<!-- ================= HERO SECTION ================= -->
+<section class="hero-section">
+  <div class="hero-overlay">
+    <div class="container hero-content text-center text-md-start">
+      <div class="hero-inner">
+        <p class="hero-badge">
+          Professional • Reliable • Mobile
+        </p>
+
+        <h1 class="hero-title">
+          Professional Mobile Car Wash & Cleaning
+        </h1>
+
+        <p class="hero-subtitle">
+          Car detailing, valeting, and professional cleaning for homes & businesses — we come to you.
+        </p>
+
+        <div class="hero-actions d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="{% url 'bookings:booking' %}" class="btn btn-light btn-lg">
             Book Now
-        </a>
+          </a>
+
+          <a href="https://wa.me/447956450596" target="_blank" rel="noopener"
+             class="btn btn-outline-light btn-lg">
+            WhatsApp Us
+          </a>
+
+          <a href="tel:+447956450596" class="btn btn-outline-light btn-lg d-none d-md-inline-block">
+            Call Us
+          </a>
+        </div>
+
+        <div class="hero-trust mt-4">
+          <span>Trusted local mobile service</span>
+          <span class="mx-2">•</span>
+          <span>Fast booking</span>
+          <span class="mx-2">•</span>
+          <span>Starting from affordable rates</span>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
+
+<!-- ================= SERVICES SNAPSHOT ================= -->
+<section class="services-snapshot">
+  <div class="container">
+    <h2 class="section-title text-center">Our Services</h2>
+
+    <div class="row g-4 text-center">
+      <div class="col-6 col-md-3">
+        <div class="service-box">
+          <i class="bi bi-car-front-fill"></i>
+          <h5>Car Valeting & Detailing</h5>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="service-box">
+          <i class="bi bi-house-door-fill"></i>
+          <h5>Home & Office Cleaning</h5>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="service-box">
+          <i class="bi bi-box-arrow-right"></i>
+          <h5>Move In / Move Out</h5>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="service-box">
+          <i class="bi bi-sofa-fill"></i>
+          <h5>Upholstery & Carpets</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{% url 'services:list' %}" class="btn btn-outline-primary">
+        View All Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why-us">
+  <div class="container">
+    <h2 class="section-title text-center">Why Choose Rinex Shine</h2>
+
+    <div class="row text-center g-4">
+      <div class="col-md-3">
+        <i class="bi bi-truck"></i>
+        <p>Mobile & Convenient</p>
+      </div>
+      <div class="col-md-3">
+        <i class="bi bi-tools"></i>
+        <p>Professional Equipment</p>
+      </div>
+      <div class="col-md-3">
+        <i class="bi bi-shield-check"></i>
+        <p>Trusted & Reliable</p>
+      </div>
+      <div class="col-md-3">
+        <i class="bi bi-cash-stack"></i>
+        <p>Affordable Pricing</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how-it-works">
+  <div class="container text-center">
+    <h2 class="section-title">How It Works</h2>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="step-box">
+          <span class="step-number">1</span>
+          <p>Choose a Service</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="step-box">
+          <span class="step-number">2</span>
+          <p>Book via WhatsApp or Phone</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="step-box">
+          <span class="step-number">3</span>
+          <p>We Come to You</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <div class="container text-center">
+    <h2 class="section-title">What Our Customers Say</h2>
+
+    <blockquote>
+      “Professional, punctual, and my car looked brand new. Highly recommended.”
+    </blockquote>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta text-center">
+  <h2>Ready to Book?</h2>
+  <p>Get your car or space spotless today.</p>
+
+  <a href="{% url 'bookings:booking' %}" class="btn btn-success btn-lg">
+    Book Now
+  </a>
+</section>
+
 {% endblock %}
