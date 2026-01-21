@@ -1,0 +1,164 @@
+:root{
+  --rinex-navy:#0E2A5A;
+  --rinex-white:#ffffff;
+  --overlay: rgba(14,42,90,0.95);
+}
+
+/* HERO */
+.hero-section{
+  position: relative;
+  min-height: 82vh;
+  background-image: url("/static/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay{
+  min-height: 82vh;
+  background: linear-gradient(
+      90deg,
+      rgba(14,42,90,0.95) 0%,
+      rgba(14,42,90,0.92) 55%,
+      rgba(14,42,90,0.70) 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.hero-content{
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.hero-inner{
+  max-width: 760px;
+}
+
+.hero-badge{
+  display: inline-block;
+  color: var(--white);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 1rem;
+}
+
+.hero-title{
+  color: var(--white);
+  font-weight: 800;
+  line-height: 1.05;
+  font-size: clamp(2rem, 3.6vw, 3.3rem);
+  margin-bottom: 0.8rem;
+}
+
+.hero-subtitle{
+  color: rgba(255,255,255,0.92);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.5;
+  margin-bottom: 1.6rem;
+}
+
+.hero-actions .btn{
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+}
+
+.hero-trust{
+  color: rgba(255,255,255,0.85);
+  font-size: 0.98rem;
+}
+
+/* SECTIONS */
+.section-title {
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.services-snapshot,
+.why-us,
+.how-it-works,
+.testimonials {
+  padding: 4rem 0;
+}
+
+.service-box {
+  background: #f8f9fa;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+}
+
+.service-box i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* WHY US */
+.why-us i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* HOW IT WORKS */
+.step-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  line-height: 40px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* TESTIMONIAL */
+.testimonials blockquote {
+  font-style: italic;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--primary);
+  color: var(--white);
+  padding: 4rem 1rem;
+}
+
+
+.rinex-sticky-cta{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(14,42,90,0.95);
+  z-index: 1050;
+}
+
+.rinex-sticky-cta .cta{
+  text-align:center;
+  padding: 10px 8px;
+  border-radius: 10px;
+  text-decoration:none;
+  color: var(--rinex-white);
+  border: 1px solid rgba(255,255,255,0.25);
+  font-weight: 600;
+}
+
+.rinex-sticky-cta .cta-primary{
+  background: #16BAE1; /* WhatsApp-like green */
+  border: none;
+}
+
+.bg-dark { background-color: var(--rinex-navy) !important; }
+.navbar-brand { letter-spacing: .5px; }
+.btn-success { background-color: #16BAE1; border-color: #16BAE1; } /* optional */
